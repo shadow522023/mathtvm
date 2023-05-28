@@ -43,13 +43,19 @@ elif (input_number) == "2":
     print("เปลี่ยน องศา เป็น เรีเดียน ")
 elif (input_number) == "0":
     print("เริ่มการอัปเดต")
-    os.system("cd $home")
-    time.sleep(2)
-    os.system("rm -rf mathtvm")
-    time.sleep(2)
-    os.system("git clone https://github.com/shadow522023/mathtvm.git")
-    os.system("cd mathtvm")
-    os.system("python3 index.py")
+    repo_url = "https://github.com/shadow522023/mathtvm.git"
+    local_path = "/storage/emulated/0/github-repo"
+    if os.path.exists(local_path):
+        # ใช้ gitpython เพื่ออัปเดตรหัสจาก GitHub
+        repo = git.Repo(local_path)
+        repo.remotes.origin.pull()
+        print("Script updated!")
+    else:
+        # ใช้ gitpython เพื่อดาวน์โหลดรหัสจาก GitHub
+        git.Repo.clone_from(repo_url, local_path)
+        print("Script downloaded!")
+else:
+    print("Invalid number!")
     print("อัปเดตเรียบร้อย")
    
     
