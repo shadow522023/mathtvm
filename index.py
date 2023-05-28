@@ -27,7 +27,7 @@ number_show = ("""
 
 [3] เปลี่ยน เรเดี่ยน เป็น องศา
 
-
+[4] รอ
 """)
 print(number_show)
 input_number = input("หมายเลขที่ต้องการ : ")
