@@ -43,8 +43,14 @@ elif (input_number) == "2":
     print("เปลี่ยน องศา เป็น เรีเดียน ")
 elif (input_number) == "0":
     print("เริ่มการอัปเดต")
-    os.system("dir")
-    time.sleep(5)
-    os.system("cd Downloads")
+    os.system("cd $home")
+    time.sleep(2)
+    os.system("rm -rf mathtvm")
+    time.sleep(2)
+    os.system("git clone https://github.com/shadow522023/mathtvm.git")
+    os.system("cd mathtvm")
+    os.system("python3 index.py")
+    print("อัปเดตเรียบร้อย")
+   
     
 
